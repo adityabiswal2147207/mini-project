@@ -4,6 +4,8 @@ var ejs = require('ejs');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 
+
+//this is the demo connection dont use this one
 const db = mysql.createConnection({
     host:"",
     port:"",
