@@ -25,8 +25,7 @@
     <body>
         <div class="container-fluid">
             <h1><%= title %></h1>
-            <p>A mini project created by:</p>
-            <h4>Aayush Chajjer | Aditya Biswal</h4>
+            <p>Patient Records Dashboard</p>
         </div>
         <br>
         <br>
@@ -37,11 +36,11 @@
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>TODO</th>
+                        <th>Name</th>
                         <th>Priority</th>
                         <th>Description</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        <th>Link</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,8 +51,9 @@
                             <td><%= user.priority %></td>
                             <td><%= user.description %></td>
                             <td><%= user.status %></td>
+                            <td><%= user.actions %></td>
                             <td>
-                                <a href="edit/<%= user.id %>" class="btn btn-success">Edit</a>
+                                <!-- <a href="edit/<%= user.id %>" class="btn btn-success">Edit</a> -->
                                 <a href="delete/<%= user.id %>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
@@ -63,7 +63,7 @@
         </div>
         <br>
         <div class="con">
-            <a href="/add"class="btn btn-info">Add Todo</a>
+            <a href="/add"class="btn btn-info">ADD RECORD</a>
         </div>
         
         

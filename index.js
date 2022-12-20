@@ -37,7 +37,7 @@ app.get('/',(req,res)=>{
     let query = db.query(sql,(err,rows)=>{
         if(err) throw err;
         res.render('index',{
-            title : 'Welcome To AWS TODO List',
+            title : 'CHRIST HOSPITAL',
             users : rows
         });
     });
@@ -45,12 +45,12 @@ app.get('/',(req,res)=>{
 
 app.get('/add',(req,res)=>{
     res.render('add',{
-        title : 'Welcome To AWS TODO List'
+        title : 'CHRIST HOSPITAL'
     })
 });
 
 app.post('/save',(req,res)=>{
-    let data = {todo: req.body.todo, priority: req.body.priority, description: req.body.description, status: req.body.status};
+    let data = {todo: req.body.todo, priority: req.body.priority, description: req.body.description, status: req.body.status, actions:req.body.actions};
     let sql = "INSERT INTO new_table SET?";
     let query = db.query(sql,data,(err,results)=>{
         if(err) throw err;
@@ -64,15 +64,19 @@ app.get('/edit/:userId',(req,res)=>{
     let query = db.query(sql,(err,result)=>{
         if(err) throw err;
         res.render('edit',{
-            title: 'Welcome To AWS TODO List',
+            title: 'CHRIST HOSPITAL',
             users: result[0]
         });
     });
 });
 
 app.post('/update',(req,res)=>{
-    const userId = req.params.id;
-
+    const userId = req.params.Id;
+    let sql = `UPDATE new_table SET todo = ? , priority = ?, description = ?, status = ?, WHERE id = ${userId}`;
+    let query = db.query(sql,(err,result)=>{
+        if(err) throw err;
+        res.redirect('/');
+    });
 });
 
 app.get('/delete/:userId',(req,res)=>{
